@@ -10,7 +10,7 @@ import os
 #from PIL import Image
 #from glob import glob
 "Data/Example"
-path = "https://github.com/Alernst/Test_App/Data/Example.xlsx"
+path = "Data/Example.xlsx"
 st.text(path)
 data = pd.read_excel(path)
 fig = px.violin(data)
