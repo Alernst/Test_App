@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 #from skimage.io import imread, imshow 
 #from PIL import Image
 #from glob import glob
-
-data = pd.read_excel("./Data/Example.xlsx")
+"Data/Example"
+data = pd.read_excel("C:/Users/aernst/Documents/GitHub/Test_App/Data/Example.xlsx")
 fig = px.violin(data)
 st.plotly_chart(fig,use_container_width=True)
