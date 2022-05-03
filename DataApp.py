@@ -27,9 +27,10 @@ def authentication():
             st.write("Username/Password wrong")
     return (authentication_status, username)
 
-        
+st.title("CoVasc Drug Screening")
+st.header("Login to see content (Click on sidebar)")
 #name, authentication_status, username = authentication()
-with st.sidebar("Login"):
+with st.sidebar:
     a_state,user = authentication()
 
 if a_state:
