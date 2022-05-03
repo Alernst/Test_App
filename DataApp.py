@@ -32,9 +32,10 @@ authenticator = stauth.Authenticate(names,usernames,passwords,
 
 name, authentication_status, username = authenticator.login('Login','main')
 
-st.button("Show", on_click=show_graph(authentication_status))    
-    
-    
+button = st.button("Show")    
+
+if button:
+   show_graph(authentication_status)
 
 
 
