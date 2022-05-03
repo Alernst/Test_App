@@ -12,6 +12,7 @@ with st.form("Login"):
 
     # Every form must have a submit button.
     submitted = st.form_submit_button("Login")
+    success = False
     if submitted:
         if (user == st.secrets["DB_USERNAME"]) & (pw == st.secrets["DB_PASSWORD"]): 
             success = True
@@ -32,6 +33,5 @@ with st.form("Login"):
         st.text(path)
         data = pd.read_excel(path)
         fig = px.violin(data)
-        st.plotly_chart(fig,use_container_width=True)
         st.plotly_chart(fig,use_container_width=True)
     
