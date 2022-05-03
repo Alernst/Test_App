@@ -22,9 +22,9 @@ def show_graph(authentication_status):
     elif authentication_status == None:
         st.warning('Please enter your username and password')
         
-names = [st.secrets["DB_TOKEN"]]
-usernames = [st.secrets["DB_USERNAME"]]
-passwords = [st.secrets["DB_PASSWORD"]]
+names = [st.secrets["DB_TOKEN"],"Alex"]
+usernames = [st.secrets["DB_USERNAME"],"AE"]
+passwords = [st.secrets["DB_PASSWORD"],"230989"]
 
 authenticator = stauth.Authenticate(names,usernames,passwords,
     'Show','me12',cookie_expiry_days=30)
