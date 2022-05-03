@@ -4,22 +4,22 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import os
+with st.expander("Click here to login"):
+    with st.form("Login"):
+        
+        user = st.text_input("Username")
+        pw = st.text_input("Password")
 
-with st.form("Login"):
-    
-    user = st.text_input("Username")
-    pw = st.text_input("Password")
-
-    # Every form must have a submit button.
-    submitted = st.form_submit_button("Login")
-    success = False
-    if submitted:
-        if (user == st.secrets["DB_USERNAME"]) & (pw == st.secrets["DB_PASSWORD"]): 
-            success = True
-            st.write("Logged in")
-        else:
-            success = False
-            st.write("Login failed")
+        # Every form must have a submit button.
+        submitted = st.form_submit_button("Login")
+        success = False
+        if submitted:
+            if (user == st.secrets["DB_USERNAME"]) & (pw == st.secrets["DB_PASSWORD"]): 
+                success = True
+                st.write("Logged in")
+            else:
+                success = False
+                st.write("Login failed")
     
 
 if success:
