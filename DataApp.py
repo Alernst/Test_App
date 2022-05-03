@@ -29,7 +29,7 @@ def authentication():
 
         
 #name, authentication_status, username = authentication()
-with st.sidebar:
+with st.sidebar("Login"):
     a_state,user = authentication()
 
 if a_state:
