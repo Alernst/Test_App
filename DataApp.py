@@ -22,16 +22,15 @@ with st.form("Login"):
             st.write("Login failed")
     
 
-    if success:
+if success:
 
-    #import pydeck as pdk
-    #import numpy as np#Load and Cache the data
-    #from skimage.io import imread, imshow 
-    #from PIL import Image
-    #from glob import glob
-        path = "Data/Example.xlsx"
-        st.text(path)
-        data = pd.read_excel(path)
-        fig = px.violin(data)
-        st.plotly_chart(fig,use_container_width=True)
-    
+#import pydeck as pdk
+#import numpy as np#Load and Cache the data
+#from skimage.io import imread, imshow 
+#from PIL import Image
+#from glob import glob
+    path = "Data/Example.xlsx"
+    st.text(path)
+    data = pd.read_excel(path)
+    fig = px.violin(data)
+    st.plotly_chart(fig,use_container_width=True)
