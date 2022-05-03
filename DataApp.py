@@ -19,8 +19,12 @@ def authentication():
         st.form_submit_button("Login")
         if (username == username_c) & (password == password_c): 
             authentication_status = True
+            st.write("Login successful")
+        elif (username == "") & (password == ""):
+            st.write("Enter a username and password")
         else:
             authentication_status = False
+            st.write("Username/Password wrong")
     return (authentication_status, username)
 
         
