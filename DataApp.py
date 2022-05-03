@@ -5,7 +5,8 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import os
 import streamlit_authenticator as stauth
-@st.che
+
+@st.cache()
 def authentication():
     names = [st.secrets["DB_TOKEN"],"Alex"]
     usernames = [st.secrets["DB_USERNAME"],"AE"]
