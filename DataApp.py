@@ -4,44 +4,39 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import os
-import streamlit_authenticator as stauth
 
 
+@st.cache(allow_output_mutation=True)  
 def authentication():
-    names = [st.secrets["DB_TOKEN"],"Alex"]
-    usernames = [st.secrets["DB_USERNAME"],"AE"]
-    passwords = [st.secrets["DB_PASSWORD"],"230989"]
-
-    authenticator = stauth.Authenticate(names,usernames,passwords,
-                    'Show','me12',cookie_expiry_days=30)
-    name, authentication_status, username = authenticator.login('Login','main')
-    return (name, authentication_status, username)
-
+    name_c = st.secrets["DB_TOKEN"]
+    username_c = st.secrets["DB_USERNAME"]
+    password_c = st.secrets["DB_PASSWORD"]
+    authentication_status = None
     
-def show_graph(name,authentication_status):
-    st.write("Me")
-    if authentication_status:
-        authenticator.logout('Logout', 'main')
-        st.write('Welcome *%s*' % (name))
-        st.title('Best results ever')
-        path = "Data/Example.xlsx"
-        st.text(path)
-        data = pd.read_excel(path)
-        fig = px.violin(data)
-        st.plotly_chart(fig,use_container_width=True)
-    elif authentication_status == False:
-        st.error('Username/password is incorrect')
-    elif authentication_status == None:
-        st.warning('Please enter your username and password')
+    with st.form(key="Login")
+        username = st.text_input("Username")
+        password = st.text_input("Password")
+        st.form_submit_button("Login")
+        if (username == username_c) & (password == password_c): 
+            authentication_status = True
+        else:
+            authentication_status = False
+    return (authentication_status, username)
+
         
 #name, authentication_status, username = authentication()
 
+a_state,user = authentication()
+
+if a_state:
+    path = "Data/Example.xlsx"
+    st.text(path)
+    data = pd.read_excel(path)
+    fig = px.violin(data)
+    st.plotly_chart(fig,use_container_width=True)
 
 
-st.text_input("PW", type='password') 
 
-if button:
-   show_graph(name,authentication_status)
 
 
 
