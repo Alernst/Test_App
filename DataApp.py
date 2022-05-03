@@ -20,7 +20,7 @@ def authentication():
         if (username == username_c) & (password == password_c): 
             authentication_status = True
             st.write("Login successful")
-        elif (username == "") & (password == ""):
+        elif (username == "") | (password == ""):
             st.write("Enter a username and password")
         else:
             authentication_status = False
