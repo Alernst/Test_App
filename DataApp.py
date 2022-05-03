@@ -15,7 +15,7 @@ def authentication():
     
     with st.form(key="Login"):
         username = st.text_input("Username")
-        password = st.text_input("Password")
+        password = st.text_input("Password", type="password")
         st.form_submit_button("Login")
         if (username == username_c) & (password == password_c): 
             authentication_status = True
