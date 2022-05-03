@@ -7,6 +7,7 @@ import os
 import streamlit_authenticator as stauth
 
 def show_graph(authentication_status):
+    st.write("Me")
     if authentication_status:
         authenticator.logout('Logout', 'main')
         st.write('Welcome *%s*' % (name))
@@ -24,8 +25,7 @@ def show_graph(authentication_status):
 names = [st.secrets["DB_TOKEN"]]
 usernames = [st.secrets["DB_USERNAME"]]
 passwords = [st.secrets["DB_PASSWORD"]]
-st.write(passwords)
-st.write(usernames)
+
 authenticator = stauth.Authenticate(names,usernames,passwords,
     'Show','me12',cookie_expiry_days=30)
 
