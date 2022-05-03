@@ -29,8 +29,8 @@ def authentication():
 
         
 #name, authentication_status, username = authentication()
-
-a_state,user = authentication()
+with st.sidebar:
+    a_state,user = authentication()
 
 if a_state:
     path = "Data/Example.xlsx"
