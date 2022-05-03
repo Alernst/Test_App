@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import os
 import streamlit_authenticator as stauth
 
-def show_graph():
+def show_graph(authentication_status):
     if authentication_status:
         authenticator.logout('Logout', 'main')
         st.write('Welcome *%s*' % (name))
@@ -32,7 +32,7 @@ authenticator = stauth.Authenticate(names,usernames,passwords,
 
 name, authentication_status, username = authenticator.login('Login','main')
 
-st.button("Show", on_click=show_graph())    
+st.button("Show", on_click=show_graph(authentication_status))    
     
     
 
