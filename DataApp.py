@@ -8,7 +8,8 @@ import streamlit_authenticator as stauth
 names = st.secrets["DB_TOKEN"] 
 usernames = st.secrets["DB_USERNAME"]
 passwords = st.secrets["DB_PASSWORD"]
-
+st.write(passwords)
+st.write(names)
 authenticator = stauth.Authenticate(names,usernames,passwords,
     'Show','me12',cookie_expiry_days=30)
 name, authentication_status, username = authenticator.login('Login','main')
