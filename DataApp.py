@@ -5,17 +5,8 @@ from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import os
 import streamlit_authenticator as stauth
-names = [st.secrets["DB_TOKEN"]]
-usernames = [st.secrets["DB_USERNAME"]]
-passwords = [st.secrets["DB_PASSWORD"]]
-st.write(passwords)
-st.write(usernames)
-authenticator = stauth.Authenticate(names,usernames,passwords,
-    'Show','me12',cookie_expiry_days=30)
 
-with authenticator:
-    name, authentication_status, username = authenticator.login('Login','main')
-
+def show_graph():
     if authentication_status:
         authenticator.logout('Logout', 'main')
         st.write('Welcome *%s*' % (name))
@@ -29,6 +20,20 @@ with authenticator:
         st.error('Username/password is incorrect')
     elif authentication_status == None:
         st.warning('Please enter your username and password')
+        
+names = [st.secrets["DB_TOKEN"]]
+usernames = [st.secrets["DB_USERNAME"]]
+passwords = [st.secrets["DB_PASSWORD"]]
+st.write(passwords)
+st.write(usernames)
+authenticator = stauth.Authenticate(names,usernames,passwords,
+    'Show','me12',cookie_expiry_days=30)
+
+
+name, authentication_status, username = authenticator.login('Login','main')
+
+st.button("Show", on_click=show_graph())    
+    
     
 
 
