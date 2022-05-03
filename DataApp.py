@@ -31,7 +31,7 @@ authenticator = stauth.Authenticate(names,usernames,passwords,
 
 
 name, authentication_status, username = authenticator.login('Login','main')
-
+st.write(username)
 button = st.button("Show")    
 
 if button:
