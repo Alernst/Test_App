@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import os
 
 
-@st.cache(allow_output_mutation=True)  
+#@st.cache(allow_output_mutation=True)  
 def authentication():
     name_c = st.secrets["DB_TOKEN"]
     username_c = st.secrets["DB_USERNAME"]
