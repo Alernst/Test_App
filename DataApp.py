@@ -4,33 +4,35 @@ import plotly.express as px
 from plotly.subplots import make_subplots
 import plotly.graph_objects as go
 import os
-with st.expander("Click here to login"):
-    with st.form("Login"):
-        
-        user = st.text_input("Username")
-        pw = st.text_input("Password")
+import streamlit_authenticator as stauth
+names = st.secrets["DB_TOKEN"] 
+usernames = st.secrets["DB_USERNAME"]
+passwords = st.secrets["DB_PASSWORD"]
 
-        # Every form must have a submit button.
-        submitted = st.form_submit_button("Login")
-        success = False
-        if submitted:
-            if (user == st.secrets["DB_USERNAME"]) & (pw == st.secrets["DB_PASSWORD"]): 
-                success = True
-                st.write("Logged in")
-            else:
-                success = False
-                st.write("Login failed")
+authenticator = stauth.Authenticate(names,usernames,passwords,
+    'Show','me12',cookie_expiry_days=30)
+name, authentication_status, username = authenticator.login('Login','main')
+
+if authentication_status:
+    authenticator.logout('Logout', 'main')
+    st.write('Welcome *%s*' % (name))
+    st.title('Best results ever')
+    path = "Data/Example.xlsx"
+    st.text(path)
+    data = pd.read_excel(path)
+    fig = px.violin(data)
+    st.plotly_chart(fig,use_container_width=True)
+elif authentication_status == False:
+    st.error('Username/password is incorrect')
+elif authentication_status == None:
+    st.warning('Please enter your username and password')
     
 
-if success:
+
 
 #import pydeck as pdk
 #import numpy as np#Load and Cache the data
 #from skimage.io import imread, imshow 
 #from PIL import Image
 #from glob import glob
-    path = "Data/Example.xlsx"
-    st.text(path)
-    data = pd.read_excel(path)
-    fig = px.violin(data)
-    st.plotly_chart(fig,use_container_width=True)
+    
