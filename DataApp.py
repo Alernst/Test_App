@@ -13,7 +13,7 @@ def authentication():
     password_c = st.secrets["DB_PASSWORD"]
     authentication_status = None
     
-    with st.form(key="Login")
+    with st.form(key="Login"):
         username = st.text_input("Username")
         password = st.text_input("Password")
         st.form_submit_button("Login")
