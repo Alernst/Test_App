@@ -11,9 +11,9 @@ st.title("Demo App")
 path = "Data/Example.xlsx"
 data = pd.read_excel(path)
 
-#options = st.multiselect(
-#     'Which columns to show?',
-#     data.columns)
+options = st.multiselect(
+     'Which columns to show?',
+     data.columns)
 
 
 #points = st.checkbox('Show points')
@@ -25,8 +25,8 @@ data = pd.read_excel(path)
 #    fig = px.violin(data[options], points="all")
 
 #else:
-#    fig = px.violin(data[options])
-fig = px.violin(data)
+fig = px.violin(data[options])
+#fig = px.violin(data)
 
 st.plotly_chart(fig,use_container_width=True)
 
