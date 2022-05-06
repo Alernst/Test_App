@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import os
 from PIL import Image
-
+import skimage
 
 st.title("Demo App")
 
