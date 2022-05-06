@@ -18,7 +18,7 @@ options = st.multiselect(
 
 points = st.checkbox('Show points')
 
-im = Image.open("Online_Short workflow.png")
+im = Image.open("fish.png")
 
 if points:
     fig = px.violin(data[options], points="all")
@@ -27,6 +27,5 @@ else:
     fig = px.violin(data[options])
     
 st.plotly_chart(fig,use_container_width=True)
-
-
+st.image(im, caption='fish')
 
