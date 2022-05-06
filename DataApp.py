@@ -6,7 +6,7 @@ from PIL import Image
 
 
 st.title("Demo App")
-
+st.image(im, caption='fish')
 
 path = "Data/Example.xlsx"
 data = pd.read_excel(path)
@@ -27,5 +27,5 @@ else:
     fig = px.violin(data[options])
     
 st.plotly_chart(fig,use_container_width=True)
-st.image(im, caption='fish')
+
 
