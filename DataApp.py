@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import os
-import PIL
+from PIL import Image
 
 
 st.title("Demo App")
@@ -18,6 +18,7 @@ options = st.multiselect(
 
 points = st.checkbox('Show points')
 
+im = Image.open("Test_App/Online_Short workflow.png")
 
 if points:
     fig = px.violin(data[options], points="all")
