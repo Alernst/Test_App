@@ -12,9 +12,8 @@ path = "Data/Example.xlsx"
 data = pd.read_excel(path)
 
 options = st.multiselect(
-     'What are your favorite colors',
-     data.columns,
-     data.columns[:2])
+     'Which columns to show?',
+     data.columns)
 
 
 points = st.checkbox('Show points')
